@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brucine Chiral Center Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Brucine Chiral Compound Analyzer (Python)</h1>
+      <p>Public chemistry website generated through Python Flask.</p>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>Compound Details</h2>
+        <p><strong>Name:</strong> {{ brucine.name }}</p>
+        <p><strong>Molecular Formula:</strong> {{ brucine.molecular_formula }}</p>
+        <p><strong>Number of Chiral Centers:</strong> {{ brucine.chiral_center_count }}</p>
+
+        <h3>R/S Configuration</h3>
+        <ul>
+          {% for item in brucine.rs_configuration %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>Student Details</h2>
+        <p><strong>Name:</strong> {{ student.name }}</p>
+        <p><strong>Reg No:</strong> {{ student.roll_no }}</p>
+        <p><strong>Department:</strong> {{ student.dept }}</p>
+        <p><strong>Section:</strong> {{ student.section }}</p>
+      </section>
+
+      <section class="panel wide">
+        <h2>2D Structure</h2>
+        <div class="svg-wrap">{{ svg_2d|safe }}</div>
+      </section>
+
+      <section class="panel wide">
+        <h2>3D Structure</h2>
+        <div class="svg-wrap">{{ svg_3d|safe }}</div>
+        <p class="small">Note: this is a Python-generated 3D projection for educational use.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Built in Python • Ready for GitHub public hosting</p>
+    </footer>
+  </body>
+</html>
